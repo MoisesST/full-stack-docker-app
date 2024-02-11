@@ -1,0 +1,38 @@
+# Get a List of contacts
+GET http://localhost:4006/contacts
+
+###
+
+# Store a contacts
+POST http://localhost:4006/contacts/PutAnID
+Content-Type: application/json
+
+{
+  "name": "oliveira",
+  "email": "oliveira@mail.com",
+  "phone": "12345864",
+  "category_id": "df234sergs-s4334t"
+}
+
+###
+
+# Update a contact
+PUT http://localhost:4006/contacts/PutAnID
+Content-Type: application/json
+
+{
+  "name": "Moises Santos",
+  "email": "Bia@mail.com",
+  "phone": "lalal",
+  "category_id": "6060c5a4-3336-48de-896f-9022cf1d5d5f"
+}
+
+###
+
+# Get a contact
+GET http://localhost:4006/contacts/PutAnID
+
+###
+
+# Delete a contact
+DELETE http://localhost:4006/contacts/PutAnID

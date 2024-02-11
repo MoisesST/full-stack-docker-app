@@ -1,0 +1,16 @@
+version: "4"
+
+services:
+  api:
+    build: ./backend
+    ports:
+      - 4006:4006
+    develop:
+      watch:
+        - path: ./backend/package.json
+          action: rebuild
+        - path: ./backend/yarn.lock
+          action: rebuild
+        - path: ./backend
+          target: /app
+          action: sync
