@@ -4,14 +4,13 @@ GET http://localhost:4006/contacts
 ###
 
 # Store a contacts
-POST http://localhost:4006/contacts/PutAnID
+POST http://localhost:4006/contacts
 Content-Type: application/json
 
 {
-  "name": "oliveira",
-  "email": "oliveira@mail.com",
-  "phone": "12345864",
-  "category_id": "df234sergs-s4334t"
+  "name": "leo",
+  "email": "leo@mail.com",
+  "phone": "12345864"
 }
 
 ###

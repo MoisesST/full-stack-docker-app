@@ -1,10 +1,14 @@
-version: "4"
+version: "4.1"
 
 services:
   api:
+    container_name: api
     build: ./backend
     ports:
       - 4006:4006
+    depends_on:
+      - db
+    restart: always
     develop:
       watch:
         - path: ./backend/package.json
@@ -14,3 +18,24 @@ services:
         - path: ./backend
           target: /app
           action: sync
+    networks:
+      - api-db
+
+  db:
+    container_name: db
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    volumes:
+      - "./backend/src/database/schema.sql:/docker-entrypoint-initdb.d/schema.sql"
+      - "db-data:/var/lib/postgresql/data"
+    networks:
+      - api-db
+
+volumes:
+  db-data:
+networks:
+  api-db:

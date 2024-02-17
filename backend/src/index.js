@@ -5,4 +5,7 @@ const app = express();
 
 app.use(express.json());
 app.use(routes);
-app.listen(4006);
+
+const port = process.env.PORT || 4006;
+
+app.listen(port);
